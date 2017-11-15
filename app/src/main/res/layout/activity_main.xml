@@ -12,7 +12,6 @@
     <view
         android:id="@+id/memoryView"
         class="edu.schaf170msu.matchpairs.MemoryView"
-        id="@+id/puzzleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />

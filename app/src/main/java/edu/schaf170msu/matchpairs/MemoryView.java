@@ -2,6 +2,7 @@ package edu.schaf170msu.matchpairs;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -65,5 +66,21 @@ public class MemoryView extends View {
 
     public Memory getMemory() {
         return memory;
+    }
+
+    /**
+     * Save the puzzle to a bundle
+     * @param bundle The bundle we save to
+     */
+    public void saveInstanceState(Bundle bundle) {
+        memory.saveInstanceState(bundle);
+    }
+
+    /**
+     * Load the puzzle from a bundle
+     * @param bundle The bundle we save to
+     */
+    public void loadInstanceState(Bundle bundle) {
+        memory.loadInstanceState(bundle);
     }
 }

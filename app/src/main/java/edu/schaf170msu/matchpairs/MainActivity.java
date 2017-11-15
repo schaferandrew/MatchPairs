@@ -8,10 +8,15 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
         setContentView(R.layout.activity_main);
-        final MemoryView view = (MemoryView) this.findViewById(R.id.memoryView);
+        final MemoryView view = (MemoryView)this.findViewById(R.id.memoryView);
+        if(bundle != null) {
+            // We have saved state
+            view.loadInstanceState(bundle);
+            view.invalidate();
+        }
         final Memory memory = view.getMemory();
 
         final Button reset = (Button) findViewById(R.id.button_reset);
@@ -31,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
 
-
+        MemoryView view = (MemoryView) this.findViewById(R.id.memoryView);
+        view.saveInstanceState(bundle);
+    }
 }
