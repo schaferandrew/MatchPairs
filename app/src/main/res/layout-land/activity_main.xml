@@ -5,39 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.schaf170msu.matchpairs.MainActivity"
-    android:layout_weight="5"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
 
     <view
         android:id="@+id/memoryView"
         class="edu.schaf170msu.matchpairs.MemoryView"
         android:layout_width="match_parent"
+        android:layout_weight="3"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_gravity="start"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4">
+        android:layout_gravity="center"
+        android:layout_weight="10"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <Button
             android:id="@+id/button_peek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toStartOf="@+id/button_reset"
-            android:text="@string/peek" />
+            android:text="@string/peek"
+            android:layout_marginBottom="15dp" />
 
         <Button
             android:id="@+id/button_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="104dp"
-            android:text="@string/reset" />
-    </RelativeLayout>
+            android:text="@string/reset"
+            />
+    </LinearLayout>
 
 
 </LinearLayout>
