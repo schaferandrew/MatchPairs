@@ -311,5 +311,10 @@ public class Memory {
 
     public void Peek() {
         // only change the visibility status, keep the solved visible upon returning
+        for (MemoryPiece piece : pieces) {
+            if (!piece.getSolved()){
+                piece.setVisibility(!piece.getVisibility());
+            }
+        }
     }
 }

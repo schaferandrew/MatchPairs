@@ -97,4 +97,8 @@ public class MemoryPiece {
     public boolean getSolved() {
         return solved;
     }
+
+    public boolean getVisibility() {
+        return visibility;
+    }
 }
