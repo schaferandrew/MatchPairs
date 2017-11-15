@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.schaf170msu.matchpairs.MainActivity"
+    android:layout_weight="5"
+    android:orientation="vertical">
+
+
+
+    <view
+        class="edu.schaf170msu.matchpairs.MemoryView"
+        id="@+id/puzzleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4">
+
+        <Button
+            android:id="@+id/button_peek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/button_reset"
+            android:text="@string/peek" />
+
+        <Button
+            android:id="@+id/button_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="102dp"
+            android:text="@string/reset"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+
+</LinearLayout>
