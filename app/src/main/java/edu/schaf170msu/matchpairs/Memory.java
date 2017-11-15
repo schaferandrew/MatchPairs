@@ -48,6 +48,7 @@ public class Memory {
      */
     private int marginX;
     private int marginY;
+    private boolean peekStatus = false;
 
     /**
      * Collection of puzzle pieces
@@ -247,7 +248,7 @@ public class Memory {
     }
 
     public boolean onTouched(float X, float Y) {
-        if (toGridPosition(X, Y) != null) {
+        if (toGridPosition(X, Y) != null && !peekStatus) {
             Point pieceCoords = toGridPosition(X, Y);
             int loc = (pieceCoords.x + (pieceCoords.y * 4));
             if (selectedPiece == -1) {
@@ -311,8 +312,20 @@ public class Memory {
 
     public void Peek() {
         // only change the visibility status, keep the solved visible upon returning
+        peekStatus = !peekStatus;
+        boolean pass = true;
         for (MemoryPiece piece : pieces) {
-            if (!piece.getSolved()){
+            if (selectedPiece != -1) {
+                if (piece == pieces.get(selectedPiece)) {
+                    pass = false;
+                } else {
+                    pass = true;
+                }
+            } else {
+                pass = true;
+            }
+
+            if (!piece.getSolved() && pass){
                 piece.setVisibility(!piece.getVisibility());
             }
         }
