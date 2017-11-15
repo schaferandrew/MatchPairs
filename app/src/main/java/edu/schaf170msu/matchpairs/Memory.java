@@ -303,6 +303,7 @@ public class Memory {
             piece.setSolved(false);
             piece.setVisibility(false);
             Shuffle();
+            peekStatus = false;
         }
     }
 
