@@ -255,7 +255,7 @@ public class Memory {
                 selectedPiece = loc;
                 pieces.get(selectedPiece).setVisibility(true);
             } else {
-                if(pieces.get(selectedPiece).getName() == pieces.get(loc).getName()) {
+                if(pieces.get(selectedPiece).getName() == pieces.get(loc).getName() && selectedPiece != loc) {
                     pieces.get(loc).setVisibility(true);
                     pieces.get(loc).setSolved(true);
                     pieces.get(selectedPiece).setSolved(true);
@@ -314,7 +314,7 @@ public class Memory {
     public void Peek() {
         // only change the visibility status, keep the solved visible upon returning
         peekStatus = !peekStatus;
-        boolean pass = true;
+        boolean pass;
         for (MemoryPiece piece : pieces) {
             if (selectedPiece != -1) {
                 if (piece == pieces.get(selectedPiece)) {
