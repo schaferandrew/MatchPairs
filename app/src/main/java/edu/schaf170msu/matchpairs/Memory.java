@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static java.lang.Math.floor;
 import static java.security.AccessController.getContext;
@@ -172,7 +173,7 @@ public class Memory {
                 "pawn"));
 
 
-
+        Shuffle();
         // to shuffle, use swap piece (random positions of arrays, run loop)
     }
 
@@ -302,13 +303,32 @@ public class Memory {
         for (MemoryPiece piece : pieces) {
             piece.setSolved(false);
             piece.setVisibility(false);
-            Shuffle();
-            peekStatus = false;
         }
+        peekStatus = false;
+        Shuffle();
     }
 
     private void Shuffle() {
         // shuffle pieces, make sure order is still correct
+        Random rand = new Random();
+        float tempX,tempY;
+        MemoryPiece tempPiece;
+        for (int i = 0; i < 16; i++){
+            int firstPiece = rand.nextInt(16);
+            int secondPiece = rand.nextInt(16);
+            if (firstPiece != secondPiece) {
+                tempX = pieces.get(firstPiece).getX();
+                tempY = pieces.get(firstPiece).getY();
+                pieces.get(firstPiece).setX(pieces.get(secondPiece).getX());
+                pieces.get(firstPiece).setY(pieces.get(secondPiece).getY());
+                pieces.get(secondPiece).setX(tempX);
+                pieces.get(secondPiece).setY(tempY);
+                tempPiece = pieces.get(firstPiece);
+                pieces.set(firstPiece, pieces.get(secondPiece));
+                pieces.set(secondPiece, tempPiece);
+            }
+
+        }
     }
 
     public void Peek() {
